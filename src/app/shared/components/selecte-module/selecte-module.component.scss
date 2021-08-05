@@ -1,0 +1,15 @@
+.module-panel {
+
+}
+
+.module-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.module-title{
+width: 100px;
+}

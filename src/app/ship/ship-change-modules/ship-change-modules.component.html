@@ -1,0 +1,14 @@
+<app-ship-params [params]="spaceService.currentShip.getShipParams()"></app-ship-params>
+
+<div class="moduleTable">
+  <div *ngFor="let mRow of modules; let x = index">
+    <div *ngFor="let module of mRow; let y = index" (click)="setCoordsSection(x,y)">
+      <svg-icon [svgStyle]="{ 'width.px':96, 'height.px': 96 }" src="assets/svg/{{module.getImg()}}"></svg-icon>
+    </div>
+  </div>
+</div>
+
+
+
+<app-selecte-module (onSelect)="onSelectModule($event)"></app-selecte-module>
+
