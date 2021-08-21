@@ -2,15 +2,17 @@
   <h1>Выбрать модуль</h1>
 
 <div class="module-panel">
-    <div class="module-row" *ngFor="let module of modules" (click)="selectModule(module);popupOne.close()">
-      <div>
-        <svg-icon [svgStyle]="{ 'width.px':48, 'height.px': 48 }" src="assets/svg/{{module.getImg()}}"></svg-icon>
+    <div class="module__item" *ngFor="let module of modules" (click)="selectModule(module);popupOne.close()">
+      <div class="module__icon" [class.module__icon__empty]="module.getImg() == ''">
+        <svg-icon  *ngIf="module.getImg() != ''" [svgStyle]="{ 'width.px':48, 'height.px': 48 }" src="assets/svg/{{module.getImg()}}"></svg-icon>
       </div>
-      <div class="module-title">
+      <div class="module__title">
         {{module.getName()}}
       </div>
-      <div class="decriprion">
+      <div class="module__decriprion">
         {{module.getName()}}
+      </div>
+      <div class="module__conditions">
       </div>
     </div>
 </div>

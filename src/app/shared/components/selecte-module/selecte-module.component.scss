@@ -1,15 +1,30 @@
 .module-panel {
+  .module__item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
 
+    margin: 24px 0;
+    background: lavender;
+    padding: 5px;
+    border-radius: 15px;
+  }
+  .module__icon__empty{
+    min-width: 48px;
+    min-height: 48px;
+    border: 1px solid;
+  }
+  .module__icon{
+    padding: 20px;
+    background: ghostwhite;
+    border-radius: 50%;
+  }
+  .module__title{
+    width: 100px;
+  }
+  .module__decriprion {}
+  .module__conditions{}
 }
 
-.module-row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.module-title{
-width: 100px;
-}
