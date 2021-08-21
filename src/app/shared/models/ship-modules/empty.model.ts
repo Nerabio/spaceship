@@ -10,7 +10,7 @@ import {Injectable} from "@angular/core";
 export class Empty implements IShipModule {
 
   getImg(): string {
-    return "0011-blueprint.svg";
+    return "";
   }
 
   getName(): string {

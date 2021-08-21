@@ -9,9 +9,12 @@ import {SelecteModuleComponent} from "../shared/components/selecte-module/select
 import {NgxSmartModalModule, NgxSmartModalService} from "ngx-smart-modal";
 import {FormsModule} from "@angular/forms";
 import {ShipParamsComponent} from "../shared/components/ship-params/ship-params.component";
-import {ModuleService} from "../shared/services/module.service";
 import {IShipModule} from "../shared/interfaces/ship-module.interface";
 import {GyperEngin} from "../shared/models/ship-modules/gyper-engine.model";
+import {EnergyReactor} from "../shared/models/ship-modules/energy-reactor.model";
+import { GrafComponent } from './graf/graf.component';
+import {Empty} from "../shared/models/ship-modules/empty.model";
+
 
 export const MODULES_DICTIONARY = new InjectionToken<IShipModule[]>('all modules!');
 
@@ -19,7 +22,8 @@ export const MODULES_DICTIONARY = new InjectionToken<IShipModule[]>('all modules
   declarations: [
     ShipChangeModulesComponent,
     SelecteModuleComponent,
-    ShipParamsComponent
+    ShipParamsComponent,
+    GrafComponent
   ],
   imports: [
     CommonModule,
@@ -29,8 +33,15 @@ export const MODULES_DICTIONARY = new InjectionToken<IShipModule[]>('all modules
     NgxSmartModalModule.forRoot(),
     FormsModule
   ],
-  providers: [NgxSmartModalService,
-    { provide: MODULES_DICTIONARY, useValue: [new GyperEngin(), new GyperEngin()] }
+  providers: [
+    NgxSmartModalService,
+    { provide: MODULES_DICTIONARY, useValue:
+        [
+          new Empty(),
+          new GyperEngin(),
+          new EnergyReactor()
+        ]
+    }
     ]
 })
 export class ShipModule { }
