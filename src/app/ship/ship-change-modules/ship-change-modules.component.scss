@@ -1,14 +1,19 @@
-.moduleTable {
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
 
-.module-room{
-  width: 96px;
-  height: 96px;
-  background-color: #b7b9c8;
-  border: 1px solid #6f7390;
+.module__container {
+  .module__table {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .module__rooms {
+    .module__room {
+      width: 96px;
+      height: 96px;
+      background-color: #b7b9c8;
+      border: 1px solid #6f7390;
+    }
+  }
 }

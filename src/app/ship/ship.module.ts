@@ -14,6 +14,7 @@ import {GyperEngin} from "../shared/models/ship-modules/gyper-engine.model";
 import {EnergyReactor} from "../shared/models/ship-modules/energy-reactor.model";
 import { GrafComponent } from './graf/graf.component';
 import {Empty} from "../shared/models/ship-modules/empty.model";
+import {DragDropModule} from "@angular/cdk/drag-drop";
 
 
 export const MODULES_DICTIONARY = new InjectionToken<IShipModule[]>('all modules!');
@@ -31,7 +32,9 @@ export const MODULES_DICTIONARY = new InjectionToken<IShipModule[]>('all modules
     HttpClientModule,
     AngularSvgIconModule.forRoot(),
     NgxSmartModalModule.forRoot(),
-    FormsModule
+    FormsModule,
+    DragDropModule
+
   ],
   providers: [
     NgxSmartModalService,

@@ -4,6 +4,7 @@ import {SpaceService} from "../../shared/services/space.service";
 import {ModuleService} from "../../shared/services/module.service";
 import {NgxSmartModalService} from "ngx-smart-modal";
 import {Empty} from "../../shared/models/ship-modules/empty.model";
+import {CdkDragDrop, moveItemInArray} from "@angular/cdk/drag-drop";
 
 
 @Component({
@@ -34,5 +35,11 @@ export class ShipChangeModulesComponent implements OnInit {
     const { x, y } = this.targetSectionCoords;
     this.modules[x][y] = module;
     this.spaceService.currentShip.reCalculateShipParams();
+  }
+
+  drop(event: any) {
+    console.log(event);
+    moveItemInArray(this.modules, event.previousIndex, event.currentIndex);
+    console.log(event.previousIndex, event.currentIndex);
   }
 }
