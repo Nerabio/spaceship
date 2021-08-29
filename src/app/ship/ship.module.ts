@@ -34,7 +34,6 @@ export const MODULES_DICTIONARY = new InjectionToken<IShipModule[]>('all modules
     NgxSmartModalModule.forRoot(),
     FormsModule,
     DragDropModule
-
   ],
   providers: [
     NgxSmartModalService,
