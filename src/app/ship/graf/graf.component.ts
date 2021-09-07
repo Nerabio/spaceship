@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import  cytoscape from 'cytoscape';
+import {SpaceService} from "../../shared/services/space.service";
 
 @Component({
   selector: 'app-graf',
@@ -8,51 +9,18 @@ import  cytoscape from 'cytoscape';
 })
 export class GrafComponent implements OnInit {
 
-  constructor() { }
+  constructor(private spaceService: SpaceService) { }
 
   ngOnInit(): void {
+    const ship = this.spaceService.currentShip;
+    const systemNavigation = ship.getSystemNavigation();
+    const mapNavigation = systemNavigation?.getMap();
+
+
+
     var cy = cytoscape({
-
       container: document.getElementById('cy'), // container to render in
-
-      elements: [ // list of graph elements to start with
-        { // node a
-          data: { id: 'a', weight: 45 },
-          position: { x: 100, y: 100 },
-        },
-        { // node b
-          data: { id: 'b', weight: 55 },
-          position: { x: 150, y: 150 },
-        },
-        {
-          data: { id: 'c', weight: 45 },
-          position: { x: 200, y: 200 },
-        },
-        {
-          data:{ id: 'd'},
-          position: { x: 250, y: 250 },
-        },
-        {
-          data:{ id: 'e', weight: 85 },
-          position: { x: 300, y: 300 },
-        },
-        { // edge ab
-          data: { id: 'ab', source: 'a', target: 'b', weight: 45 },
-
-        },
-        {
-          data: { id: 'cb', source: 'c', target: 'b', weight: 45 }
-        },
-        {
-          data: { id: 'ca', source: 'c', target: 'a', weight: 45 }
-        },
-        {
-          data:{ id: 'ad', source: 'a', target: 'd', weight: 45}
-        },
-        {
-          data:{ id: 'ce', source: 'c', target: 'e', weight: 45}
-        }
-      ],
+      elements: mapNavigation,
 
       style: [ // the stylesheet for the graph
         {
@@ -82,11 +50,14 @@ export class GrafComponent implements OnInit {
 
     });
 
+    ship.getSystemNavigation()?.setCytoscape(cy);
 
     cy.on('tap', 'node', function(evt){
       var node = evt.target;
       console.log( 'tapped ' + node.id() );
-      console.log(node.data());
+      //console.log(node.data());
+
+      systemNavigation?.calcPath(node.id());
       // cy.center( node );
     });
 
@@ -97,9 +68,9 @@ export class GrafComponent implements OnInit {
     //   };
     // });
 
-    cy.nodes().forEach(function( ele ){
-      console.log( ele.id() );
-    });
+    // cy.nodes().forEach(function( ele ){
+    //   console.log( ele.id() );
+    // });
 
     // cy.add({
     //   group: 'nodes',
@@ -121,25 +92,26 @@ export class GrafComponent implements OnInit {
     // });
 
 
-    var aStar = cy.elements().aStar({ root: "#a", goal: "#e" });
 
-    aStar.path.select();
+    // var aStar = cy.elements().aStar({ root: "#a", goal: "#e" });
+    //
+    // aStar.path.select();
+    //
+    // aStar.path.animate({
+    //   style: { 'background-color': 'cyan' }
+    // }, {
+    //   duration: 2000,
+    //   complete: function(){
+    //     console.log('Animation complete');
+    //   }
+    // });
 
-    aStar.path.animate({
-      style: { 'background-color': 'cyan' }
-    }, {
-      duration: 2000,
-      complete: function(){
-        console.log('Animation complete');
-      }
-    });
-
-    aStar.path.forEach(item => {
-
-      // this.zoom(cy, item.position().x, item.position().y);
-      console.log(item.data());
-      console.log(item.position());
-    })
+    // aStar.path.forEach(item => {
+    //
+    //   // this.zoom(cy, item.position().x, item.position().y);
+    //   console.log(item.data());
+    //   console.log(item.position());
+    // })
   }
 
 
