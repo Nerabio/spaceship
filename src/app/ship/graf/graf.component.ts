@@ -34,12 +34,27 @@ export class GrafComponent implements OnInit {
             'background-fit': 'contain'
           }
         },
-
+        {
+          selector: '.currentPosition',
+          css: {
+            'border-width': '2px',
+            'border-style': 'solid',
+            'border-color': '#ffd600',
+          }
+        },
+        {
+          selector: '.targetPosition',
+          css: {
+            'border-width': '2px',
+            'border-style': 'solid',
+            'border-color': 'green',
+          }
+        },
         {
           selector: 'edge',
           style: {
-            'width': 2,
-            'line-color': '#ccc',
+            'width': 1,
+            'line-color': '#b1d2ff',
             'target-arrow-color': '#ccc',
             'target-arrow-shape': 'triangle',
             'curve-style': 'bezier'
@@ -56,22 +71,26 @@ export class GrafComponent implements OnInit {
 
     ship.getSystemNavigation()?.setCytoscape(cy);
 
-    cy.on('tap', 'node', function(evt){
+    cy.on('tap', 'node', function(evt) {
+      // clear class
+      cy.nodes().forEach(n => {n.removeClass('targetPosition');})
       var node = evt.target;
       console.log( 'tapped ' + node.id() );
       //console.log(node.data());
-
+      node.addClass('targetPosition');
       // node.animate({style: { backgroundColor: 'red' }});
       systemNavigation?.calcPath(node.id());
       // cy.center( node );
     });
 
 
-    const timer = setInterval(() => {
-      const currentPosition = cy.nodes('#'+systemNavigation?.getCurrentPositionId());
+
+      const currentPosition = cy.nodes('#' + systemNavigation?.getCurrentPositionId());
       console.log(currentPosition);
-      currentPosition.animate({style: { backgroundColor: 'red' }});
-    }, 2000);
+      if (currentPosition){
+        currentPosition.addClass('currentPosition');
+      }
+
 
     // cy.nodes().positions(function( node, i ){
     //   return {
