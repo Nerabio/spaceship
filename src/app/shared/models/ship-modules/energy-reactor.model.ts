@@ -27,7 +27,7 @@ export class EnergyReactor implements IShipModule {
   }
 
   getType(): ShipModuleType {
-    return ShipModuleType.GYPER_ENGIN;
+    return ShipModuleType.ENERGETIC;
   }
 
   calculateParams(ship: IShip): void {

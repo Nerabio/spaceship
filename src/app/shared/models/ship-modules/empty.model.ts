@@ -26,7 +26,7 @@ export class Empty implements IShipModule {
   }
 
   getType(): ShipModuleType {
-    return ShipModuleType.GYPER_ENGIN;
+    return ShipModuleType.DEFENSE;
   }
 
   calculateParams(ship: IShip): void {

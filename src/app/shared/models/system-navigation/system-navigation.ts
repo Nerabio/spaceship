@@ -22,6 +22,9 @@ export class SystemNavigation implements INavigation{
     this.currentPosition = currentPosition;
   }
 
+  /*
+  Возвращает коэффицент дальности пути
+   */
   calcPath(selectId: string): void {
     let pathComplexityFactor = 0;
     var aStar = this.cytoscape.elements().aStar({ root: `#${this.getCurrentPositionId()}`, goal: `#${selectId}` });

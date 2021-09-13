@@ -29,7 +29,7 @@ export class GyperEngin implements IShipModule {
   }
 
   getType(): ShipModuleType {
-    return ShipModuleType.GYPER_ENGIN;
+    return ShipModuleType.MOVEMENT;
   }
 
   calculateParams(ship: IShip): void {

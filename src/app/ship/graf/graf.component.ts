@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import  cytoscape from 'cytoscape';
 import {SpaceService} from "../../shared/services/space.service";
+import {style} from "@angular/animations";
 
 @Component({
   selector: 'app-graf',
@@ -26,15 +27,18 @@ export class GrafComponent implements OnInit {
         {
           selector: 'node',
           style: {
-            'background-color': '#666',
-            'label': 'data(id)'
+           // 'background-color': '#666',
+            'background-image': 'https://st2.depositphotos.com/4329009/10418/v/950/depositphotos_104188912-stock-illustration-%D0%BA%D1%80%D0%B5%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F-%D0%BA%D0%BE%D0%BD%D1%86%D0%B5%D0%BF%D1%86%D0%B8%D1%8F-%D0%B2%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BD%D1%8B%D0%B9-%D0%BD%D0%B0%D0%B1%D0%BE%D1%80-%D1%81%D0%B2%D0%B5%D1%82%D1%8F%D1%89%D0%B8%D1%85%D1%81%D1%8F.jpg',
+            'label': 'data(id)',
+            'color': '#fff',
+            'background-fit': 'contain'
           }
         },
 
         {
           selector: 'edge',
           style: {
-            'width': 3,
+            'width': 2,
             'line-color': '#ccc',
             'target-arrow-color': '#ccc',
             'target-arrow-shape': 'triangle',
@@ -57,9 +61,17 @@ export class GrafComponent implements OnInit {
       console.log( 'tapped ' + node.id() );
       //console.log(node.data());
 
+      // node.animate({style: { backgroundColor: 'red' }});
       systemNavigation?.calcPath(node.id());
       // cy.center( node );
     });
+
+
+    const timer = setInterval(() => {
+      const currentPosition = cy.nodes('#'+systemNavigation?.getCurrentPositionId());
+      console.log(currentPosition);
+      currentPosition.animate({style: { backgroundColor: 'red' }});
+    }, 2000);
 
     // cy.nodes().positions(function( node, i ){
     //   return {
