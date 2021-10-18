@@ -8,12 +8,14 @@ import { ViewMenuComponent } from './shared/components/view-menu/view-menu.compo
 import {HttpClientModule} from "@angular/common/http";
 import {AngularSvgIconModule} from "angular-svg-icon";
 import {NgxSmartModalModule} from "ngx-smart-modal";
+import { TabsComponent } from './shared/components/tabs/tabs.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ViewMenuComponent,
+    TabsComponent,
 
   ],
   imports: [

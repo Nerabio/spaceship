@@ -15,7 +15,7 @@ export class AppComponent {
 
 
     const myShip = new Ship()
-      .mountSystemNavigation(new SystemNavigation('a'));
+      .mountSystemNavigation(new SystemNavigation('b'));
 
     console.log(myShip.getModules());
     console.log(myShip.getShipParams());
