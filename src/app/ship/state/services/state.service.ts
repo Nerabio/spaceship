@@ -481,12 +481,8 @@ export class StateService {
       state: StatesEnum.OPEN,
       transitions: [
         {
-          transition: TransitionsEnum.OPEN,
-          success: StatesEnum.CLOSE
-        },
-        {
-          transition: TransitionsEnum.CLOSE,
-          success: StatesEnum.OPEN
+          transition: TransitionsEnum.CLICK,
+          success: StatesEnum.CLOSE,
         }
       ]
     }
@@ -497,12 +493,8 @@ export class StateService {
       state: StatesEnum.CLOSE,
       transitions: [
         {
-          transition: TransitionsEnum.OPEN,
-          success: StatesEnum.CLOSE
-        },
-        {
-          transition: TransitionsEnum.CLOSE,
-          success: StatesEnum.OPEN
+          transition: TransitionsEnum.CLICK,
+          success: StatesEnum.OPEN,
         }
       ]
     }

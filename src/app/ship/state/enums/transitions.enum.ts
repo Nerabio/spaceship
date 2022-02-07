@@ -62,7 +62,7 @@ export const enum TransitionsEnum {
    */
   TR_ADDED_WITHOUT_CONFIRMATION,
 
-  OPEN,
+  CLICK,
   CLOSE
 
 }
