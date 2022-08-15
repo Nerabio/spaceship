@@ -1,0 +1,39 @@
+.progress{
+  width: 100px;
+  padding-left: 2px;
+  padding-right: 2px;
+  height: 21px;
+  border-radius: 5px;
+  border: solid 3px #4e4e4e;
+  background-color: #1e1e1e;
+
+  .track, .bar{
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  .track{
+    position: relative;
+    height: 21px;
+    overflow: hidden;
+
+    .bar{
+      height: 15px;
+      width: 6px;
+      background-color: #00ffff;
+      position: relative;
+      border-radius:2px;
+      box-shadow: 0 0 5px #00ffff;
+      margin-left: 2px;
+      margin-right: 2px;
+      top: 3px;
+      float: left;
+      clear: top;
+    }
+  }
+}
+
+
+
+
+

@@ -19,7 +19,7 @@ import {Navigation} from "../shared/models/ship-modules/navigation.model";
 import { PlanetsComponent } from './planets/planets.component';
 import { StateComponent } from './state/state.component';
 import {StateService} from "./state/services/state.service";
-
+import { ProgressbarComponent } from "../shared/components/progressbar/progressbar.component";
 
 export const MODULES_DICTIONARY = new InjectionToken<IShipModule[]>('all modules!');
 
@@ -30,7 +30,8 @@ export const MODULES_DICTIONARY = new InjectionToken<IShipModule[]>('all modules
     ShipParamsComponent,
     GrafComponent,
     PlanetsComponent,
-    StateComponent
+    StateComponent,
+    ProgressbarComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +40,7 @@ export const MODULES_DICTIONARY = new InjectionToken<IShipModule[]>('all modules
     AngularSvgIconModule.forRoot(),
     NgxSmartModalModule.forRoot(),
     FormsModule,
-    DragDropModule
+    DragDropModule,
   ],
   providers: [
     NgxSmartModalService,

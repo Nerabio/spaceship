@@ -22,7 +22,4 @@ export class Empty extends AbstractShipModule implements IShipModule {
     return ShipModuleType.EMPTY;
   }
 
-  calculateParams(ship: IShip): void {
-  }
-
 }
