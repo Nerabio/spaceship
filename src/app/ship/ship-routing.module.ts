@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {ShipChangeModulesComponent} from "./ship-change-modules/ship-change-modules.component";
 import {GrafComponent} from "./graf/graf.component";
 

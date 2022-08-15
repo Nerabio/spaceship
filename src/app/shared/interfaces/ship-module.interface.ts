@@ -3,8 +3,8 @@ import {ShipModuleType} from "../enums/ship-module-type.enum";
 import {IShip} from "./iship.interface";
 
 export interface  IShipModule {
-  getName(): string;
-  getImg(): string;
+  name:string;
+  image?: string;
   getRelation(): IShipModule[];
   getStatus(): ShipModuleStatus;
   getType(): ShipModuleType;

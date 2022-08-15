@@ -5,7 +5,7 @@
     <div class="module__rooms" *ngFor="let mRow of modules; let x = index">
       <div  class="module__room" *ngFor="let module of mRow; let y = index" (click)="setCoordsSection(x,y)">
 
-          <svg-icon cdkDrag *ngIf="module.getImg() != ''" [svgStyle]="{ 'width.px':96, 'height.px': 96 }" src="assets/svg/{{module.getImg()}}"></svg-icon>
+          <svg-icon cdkDrag *ngIf="module?.image != ''" [svgStyle]="{ 'width.px':96, 'height.px': 96 }" src="assets/svg/{{module.image}}"></svg-icon>
 
       </div>
     </div>

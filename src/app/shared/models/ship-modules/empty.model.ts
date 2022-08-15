@@ -3,19 +3,12 @@ import {ShipModuleStatus} from '../../enums/ship-module-status.enum';
 import {ShipModuleType} from '../../enums/ship-module-type.enum';
 import {IShip} from "../../interfaces/iship.interface";
 import {Injectable} from "@angular/core";
+import {AbstractShipModule} from "./abstract-ship-module";
 
 @Injectable({
   providedIn: 'root'
 })
-export class Empty implements IShipModule {
-
-  getImg(): string {
-    return "";
-  }
-
-  getName(): string {
-    return (<any>this).constructor.name;
-  }
+export class Empty extends AbstractShipModule implements IShipModule {
 
   getRelation(): IShipModule[] {
     return [];
@@ -26,7 +19,7 @@ export class Empty implements IShipModule {
   }
 
   getType(): ShipModuleType {
-    return ShipModuleType.GYPER_ENGIN;
+    return ShipModuleType.EMPTY;
   }
 
   calculateParams(ship: IShip): void {

@@ -3,19 +3,22 @@ import {ShipModuleStatus} from '../../enums/ship-module-status.enum';
 import {ShipModuleType} from '../../enums/ship-module-type.enum';
 import {IShip} from "../../interfaces/iship.interface";
 import {Injectable} from "@angular/core";
+import {AbstractShipModule} from "./abstract-ship-module";
+import {ModuleParamsInterface} from "../../interfaces/module-params.interface";
 
 @Injectable({
   providedIn: 'root'
 })
-export class EnergyReactor implements IShipModule {
-  private energy = 10;
+export class EnergyReactor extends AbstractShipModule implements IShipModule {
+  image = "wireless-charging.svg";
 
-  getImg(): string {
-    return "wireless-charging.svg";
-  }
-
-  getName(): string {
-    return (<any>this).constructor.name;
+  private readonly params: ModuleParamsInterface = {
+    usage: [],
+    production: [
+      {
+        ENERGY: 50
+      },
+    ]
   }
 
   getRelation(): IShipModule[] {
@@ -31,9 +34,7 @@ export class EnergyReactor implements IShipModule {
   }
 
   calculateParams(ship: IShip): void {
-    console.log(this.constructor.name);
-    const params = ship.getShipParams();
-    params.energy += this.energy;
+    ship.getShipParams().applyModuleParams(this.params);
   }
 
 }

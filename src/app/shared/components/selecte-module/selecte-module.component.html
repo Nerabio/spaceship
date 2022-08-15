@@ -3,14 +3,16 @@
 
 <div class="module-panel">
     <div class="module__item" *ngFor="let module of modules" (click)="selectModule(module);popupOne.close()">
-      <div class="module__icon" [class.module__icon__empty]="module.getImg() == ''">
-        <svg-icon  *ngIf="module.getImg() != ''" [svgStyle]="{ 'width.px':48, 'height.px': 48 }" src="assets/svg/{{module.getImg()}}"></svg-icon>
+      <div class="module__icon" [class.module__icon__empty]="module?.image === undefined">
+        <svg-icon  *ngIf="module?.image !== ''" [svgStyle]="{ 'width.px':48, 'height.px': 48 }" src="assets/svg/{{module.image}}"></svg-icon>
       </div>
       <div class="module__title">
-        {{module.getName()}}
+        {{module.name}}
       </div>
       <div class="module__decriprion">
-        {{module.getName()}}
+        {{module.name}}
+      </div>
+      <div class="module__params">
       </div>
       <div class="module__conditions">
       </div>

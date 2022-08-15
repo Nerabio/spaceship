@@ -15,6 +15,7 @@ import {EnergyReactor} from "../shared/models/ship-modules/energy-reactor.model"
 import { GrafComponent } from './graf/graf.component';
 import {Empty} from "../shared/models/ship-modules/empty.model";
 import {DragDropModule} from "@angular/cdk/drag-drop";
+import {Navigation} from "../shared/models/ship-modules/navigation.model";
 
 
 export const MODULES_DICTIONARY = new InjectionToken<IShipModule[]>('all modules!');
@@ -41,7 +42,8 @@ export const MODULES_DICTIONARY = new InjectionToken<IShipModule[]>('all modules
         [
           new Empty(),
           new GyperEngin(),
-          new EnergyReactor()
+          new EnergyReactor(),
+          new Navigation()
         ]
     }
     ]

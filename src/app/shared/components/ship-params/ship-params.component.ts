@@ -1,6 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IShip} from "../../interfaces/iship.interface";
-import {ShipParams} from "../../models/ship-params.model";
 
 @Component({
   selector: 'app-ship-params',
@@ -9,7 +7,7 @@ import {ShipParams} from "../../models/ship-params.model";
 })
 export class ShipParamsComponent implements OnInit {
 
-  @Input()  params: ShipParams = {} as ShipParams;
+  @Input() params: any;
 
   constructor() { }
 
