@@ -1,0 +1,31 @@
+
+
+.menu{
+  display: flex;
+  background: white;
+  z-index: 99;
+  padding: 10px;
+  border-radius: 100px;
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
+  opacity: 0.6;
+
+  .menu-item{
+    margin: 10px;
+  }
+
+  .menu-item:hover {
+    fill: blue;
+    transform: rotate(45deg);
+    transition: 2s;
+  }
+
+  .menu-item--active {
+    background-color: aliceblue;
+    fill: blue;
+    border-radius: 50px;
+  }
+}
+
+

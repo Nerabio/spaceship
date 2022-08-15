@@ -30,7 +30,7 @@ export class EnergyReactor extends AbstractShipModule implements IShipModule {
   }
 
   getType(): ShipModuleType {
-    return ShipModuleType.GYPER_ENGIN;
+    return ShipModuleType.ENERGETIC;
   }
 
   calculateParams(ship: IShip): void {

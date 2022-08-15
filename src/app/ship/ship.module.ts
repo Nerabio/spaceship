@@ -16,6 +16,9 @@ import { GrafComponent } from './graf/graf.component';
 import {Empty} from "../shared/models/ship-modules/empty.model";
 import {DragDropModule} from "@angular/cdk/drag-drop";
 import {Navigation} from "../shared/models/ship-modules/navigation.model";
+import { PlanetsComponent } from './planets/planets.component';
+import { StateComponent } from './state/state.component';
+import {StateService} from "./state/services/state.service";
 
 
 export const MODULES_DICTIONARY = new InjectionToken<IShipModule[]>('all modules!');
@@ -25,7 +28,9 @@ export const MODULES_DICTIONARY = new InjectionToken<IShipModule[]>('all modules
     ShipChangeModulesComponent,
     SelecteModuleComponent,
     ShipParamsComponent,
-    GrafComponent
+    GrafComponent,
+    PlanetsComponent,
+    StateComponent
   ],
   imports: [
     CommonModule,
@@ -45,7 +50,7 @@ export const MODULES_DICTIONARY = new InjectionToken<IShipModule[]>('all modules
           new EnergyReactor(),
           new Navigation()
         ]
-    }
+    },StateService
     ]
 })
 export class ShipModule { }

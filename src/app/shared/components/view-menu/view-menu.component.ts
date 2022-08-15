@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
+
+export interface IMenuItem {
+  icon: string;
+  route: string;
+
+}
 
 @Component({
   selector: 'app-view-menu',
@@ -7,7 +14,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewMenuComponent implements OnInit {
 
-  constructor() { }
+  public menuItems: IMenuItem[] = [
+    {
+      icon: 'constellation-svgrepo-com',
+      route: 'graph'
+    },
+    {
+      icon: 'solar-system-sun-svgrepo-com',
+      route: 'planets'
+    },
+    {
+      icon: 'rocket-svgrepo-com',
+      route: 'change'
+    },
+  ];
+
+  public readonly iconSize = { width: 48, height: 48 }
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }

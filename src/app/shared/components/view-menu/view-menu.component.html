@@ -1,1 +1,5 @@
-<p>view-menu works!</p>
+<div class="menu">
+  <a class="menu-item" *ngFor="let item of menuItems"  [routerLink]="[item.route]" routerLinkActive="menu-item--active">
+    <svg-icon src="assets/svg/{{item.icon}}.svg" [svgStyle]="iconSize"></svg-icon>
+  </a>
+</div>

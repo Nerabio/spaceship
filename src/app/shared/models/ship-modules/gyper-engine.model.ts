@@ -35,7 +35,7 @@ image = "004-chart.svg";
   }
 
   getType(): ShipModuleType {
-    return ShipModuleType.GYPER_ENGIN;
+    return ShipModuleType.MOVEMENT;
   }
 
   calculateParams(ship: IShip): void {
